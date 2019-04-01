@@ -1,4 +1,7 @@
 /***********************************************************
+
+ MEGA CAR WARS
+
  ENEMY.H
 ***********************************************************/
 #ifndef _ENEMY_H_
@@ -85,18 +88,18 @@ extern struct t_enemy_data enemies[MAX_ENEMIES_ROOM];
 // FUNCTIONS //////////////////////////////////////////////
 
 // IAs
-void EnemyIABoss(u8, u8);
-void EnemyIAClam(u8, u8);
-void EnemyIAFrog(u8, u8);
-void EnemyIAOctopus(u8, u8);
-void EnemyIAPlant(u8, u8);
-void EnemyIAShooter(u8, u8);
-void EnemyIASlug(u8, u8);
-void EnemyIATurret(u8, u8);
+void Enemy_IABoss(u8, u8);
+void Enemy_IAClam(u8, u8);
+void Enemy_IAFrog(u8, u8);
+void Enemy_IAOctopus(u8, u8);
+void Enemy_IAPlant(u8, u8);
+void Enemy_IAShooter(u8, u8);
+void Enemy_IASlug(u8, u8);
+void Enemy_IATurret(u8, u8);
 
 //
-void EnemyClearData();
-void EnemyNew(const struct t_enemy_spawn, u8, u8);
+void Enemy_clearData();
+void Enemy_new(const struct t_enemy_spawn, u8, u8);
 
 
 #endif // _ENEMY_H_

@@ -1,5 +1,5 @@
 /***********************************************************
- 
+
  MEGA CAR WARS
 
  ENEMY.C
@@ -21,49 +21,49 @@ const struct t_enemy_def enemy_types[MAX_ENEMY_TYPES] =
   // Boss
   {
   	&nmy_boss_sprite,
-  	EnemyIABoss,
+  	Enemy_IABoss,
   	{ 128, 128, 128, 128 }
   },
   // Clam
   {
   	&nmy_clam_sprite,
-  	EnemyIAClam,
+  	Enemy_IAClam,
   	{ 128, 128, 128, 128 }
   },
   // Frog
   {
   	&nmy_frog_sprite,
-  	EnemyIAFrog,
+  	Enemy_IAFrog,
   	{ 128, 128, 128, 128 }
   },
   // Octopus
   {
   	&nmy_octopus_sprite,
-  	EnemyIAOctopus,
+  	Enemy_IAOctopus,
   	{ 128, 128, 128, 128 }
   },
   // Plant
   {
   	&nmy_plant_sprite,
-  	EnemyIAPlant,
+  	Enemy_IAPlant,
   	{ 128, 128, 128, 128 }
   },
   // Shooter
   {
   	&nmy_shooter_sprite,
-  	EnemyIAShooter,
+  	Enemy_IAShooter,
   	{ 128, 128, 128, 128 }
   },
   // Slug
   {
   	&nmy_slug_sprite,
-  	EnemyIASlug,
+  	Enemy_IASlug,
   	{ 128, 128, 128, 128 }
   },
   // Turret
   {
   	&nmy_turret_sprite,
-  	EnemyIATurret,
+  	Enemy_IATurret,
   	{ 128, 128, 128, 128 }
   },
 };
@@ -77,7 +77,7 @@ struct t_enemy_data enemies[MAX_ENEMIES_ROOM];
 //---------------------------------------------------------
 // ENEMY CLEAR DATA
 //---------------------------------------------------------
-void EnemyClearData()
+void Enemy_clearData()
 {
 	u8 i;
 	for(i = 0; i < MAX_ENEMIES_ROOM; i++)
@@ -90,7 +90,7 @@ void EnemyClearData()
 //---------------------------------------------------------
 // NEW ENEMY
 //---------------------------------------------------------
-void EnemyNew(const struct t_enemy_spawn spawndata, u8 id, u8 difficulty)
+void Enemy_new(const struct t_enemy_spawn spawndata, u8 id, u8 difficulty)
 {
 	u8 type = spawndata.type;
 	u16 posx = spawndata.startx;
@@ -111,7 +111,7 @@ void EnemyNew(const struct t_enemy_spawn spawndata, u8 id, u8 difficulty)
 //---------------------------------------------------------
 // IA BOSS
 //---------------------------------------------------------
-void EnemyIABoss(u8 id, u8 level)
+void Enemy_IABoss(u8 id, u8 level)
 {
 
 }
@@ -119,7 +119,7 @@ void EnemyIABoss(u8 id, u8 level)
 //---------------------------------------------------------
 // IA CLAM
 //---------------------------------------------------------
-void EnemyIAClam(u8 id, u8 level)
+void Enemy_IAClam(u8 id, u8 level)
 {
 
 }
@@ -127,7 +127,7 @@ void EnemyIAClam(u8 id, u8 level)
 //---------------------------------------------------------
 // IA FROG
 //---------------------------------------------------------
-void EnemyIAFrog(u8 id, u8 level)
+void Enemy_IAFrog(u8 id, u8 level)
 {
 
 }
@@ -135,7 +135,7 @@ void EnemyIAFrog(u8 id, u8 level)
 //---------------------------------------------------------
 // IA OCTOPUS
 //---------------------------------------------------------
-void EnemyIAOctopus(u8 id, u8 level)
+void Enemy_IAOctopus(u8 id, u8 level)
 {
 
 }
@@ -144,7 +144,7 @@ void EnemyIAOctopus(u8 id, u8 level)
 //---------------------------------------------------------
 // IA PLANT
 //---------------------------------------------------------
-void EnemyIAPlant(u8 id, u8 level)
+void Enemy_IAPlant(u8 id, u8 level)
 {
 
 }
@@ -152,7 +152,7 @@ void EnemyIAPlant(u8 id, u8 level)
 //---------------------------------------------------------
 // IA SHOOTER
 //---------------------------------------------------------
-void EnemyIAShooter(u8 id, u8 level)
+void Enemy_IAShooter(u8 id, u8 level)
 {
 
 }
@@ -160,7 +160,7 @@ void EnemyIAShooter(u8 id, u8 level)
 //---------------------------------------------------------
 // IA SLUG
 //---------------------------------------------------------
-void EnemyIASlug(u8 id, u8 level)
+void Enemy_IASlug(u8 id, u8 level)
 {
 
 }
@@ -168,7 +168,7 @@ void EnemyIASlug(u8 id, u8 level)
 //---------------------------------------------------------
 // IA TURRET
 //---------------------------------------------------------
-void EnemyIATurret(u8 id, u8 level)
+void Enemy_IATurret(u8 id, u8 level)
 {
 
 }
