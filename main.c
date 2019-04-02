@@ -14,10 +14,12 @@
 #include "gfx.h"
 #include "sprite.h"
 
+
 // LIBS ///////////////////////////////////////////////////
+#include "inc/car.h"
 #include "inc/scenario.h"
 #include "inc/scroll.h"
-#include "inc/car.h"
+#include "inc/screen.h"
 
 // FUNCTIONS //////////////////////////////////////////////
 static void handleInput();
@@ -91,27 +93,27 @@ static void handleInput()
         camera.posx -= camera.speed;
         car.angle -= car.turnspeed;
 
-        if (camera.posx < CAMERA_BOUNDARY_LEFT) camera.posx = CAMERA_BOUNDARY_LEFT;
+        // if (camera.posx < CAMERA_BOUNDARY_LEFT) camera.posx = CAMERA_BOUNDARY_LEFT;
     }
     else if ((value & BUTTON_RIGHT))
     {
         camera.posx += camera.speed;
         car.angle += car.turnspeed;
 
-        if (camera.posx > CAMERA_BOUNDARY_RIGHT) camera.posx = FIX32(0);
+        // if (camera.posx > CAMERA_BOUNDARY_RIGHT) camera.posx = FIX32(0);
     }
 
     if ((value & BUTTON_UP))
     {
         camera.posy -= camera.speed;
 
-        if (camera.posx < CAMERA_BOUNDARY_UP) camera.posx = CAMERA_BOUNDARY_UP;
+        // if (camera.posx < CAMERA_BOUNDARY_UP) camera.posx = CAMERA_BOUNDARY_UP;
     }
     else if ((value & BUTTON_DOWN))
     {
         camera.posy += camera.speed;
 
-        if (camera.posy > CAMERA_BOUNDARY_DOWN) camera.posy = FIX32(0);
+        // if (camera.posy > CAMERA_BOUNDARY_DOWN) camera.posy = FIX32(0);
     }
 
 
