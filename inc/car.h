@@ -28,6 +28,8 @@
 // STRUCTS ////////////////////////////////////////////////
 struct t_car
 {
+    Sprite sprite;
+
     fix32 mapx, mapy; // Map coords
     fix32 posx, posy; // Screen coords
     
@@ -36,6 +38,8 @@ struct t_car
     u8 turnspeed;	// Angle addition or substraction
 
     fix32 angle;
+
+    struct t_weapon *weapon;
 };
 
 // DATA ///////////////////////////////////////////////////

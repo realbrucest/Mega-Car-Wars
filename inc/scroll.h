@@ -7,10 +7,13 @@
 #ifndef _SCROLL_H_
 #define _SCROLL_H_
 
+
 // SGDK LIBS //////////////////////////////////////////////
 #include "genesis.h"
 
+
 // LIBS ///////////////////////////////////////////////////
+#include "scenario.h"
 
 
 // CONSTANT ///////////////////////////////////////////////
@@ -21,13 +24,18 @@
 #define CAMERA_BOUNDARY_UP		0
 #define CAMERA_BOUNDARY_DOWN	1024
 
+#define CAMERA_NUM_ROWS			SCENARIO_HEIGHT_TILES
+
 // STRUCT /////////////////////////////////////////////////
 
 // Handler
 struct Camera
 {
-	fix32 posx;
-	fix32 posy;
+	u32 posx;
+	u32 posy;
+
+	u32 limitx;
+	u32 limity;
 
 	u8 column;
 	u8 row;
@@ -36,6 +44,8 @@ struct Camera
 };
 
 // DATA ///////////////////////////////////////////////////
+
+// Handler
 extern struct Camera camera;
 
 

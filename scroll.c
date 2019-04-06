@@ -24,8 +24,8 @@ void Scroll_cameraInit(u8 column, u8 row, fix32 speed)
 	camera.column = column;
 	camera.row = row;
 
-	camera.posx = FIX32(column << 3);
-	camera.posy = FIX32(row << 3);
+	camera.posx = column << 3;
+	camera.posy = row << 3;
 
 	camera.speed = speed;
 }
@@ -35,8 +35,8 @@ void Scroll_cameraInit(u8 column, u8 row, fix32 speed)
 //---------------------------------------------------------
 void Scroll_cameraUpdate()
 {
-		u8 column = fix32ToInt(camera.posx) >> 3;
-		u8 row = fix32ToInt(camera.posy) >> 3;
+		u8 column = camera.column;
+		u8 row = camera.row;
 
 		// Draw right column
 		if (column > camera.column)

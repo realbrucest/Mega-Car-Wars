@@ -97,12 +97,15 @@ extern struct t_scenario_data scenario;
 
 #define Scenario_setCurrent(id); scenario.current = (id);
 
-
 // FUNCTIONS //////////////////////////////////////////////
 
 void Scenario_loadMaps(u8);
 void Scenario_load(u8);
+
 void Scenario_setRegion(u16, u16, u16, u16, u8, u8);
+void Scenario_setColumn(u8);
+void Scenario_setRow(u8);
+
 
 
 #endif // _SCENARIO_H_

@@ -94,3 +94,20 @@ void Scenario_setRegion(u16 scnx, u16 scny, u16 mapx, u16 mapy, u8 width, u8 hei
 		scnx, scny, mapx, mapy, width, height);
 }
 
+
+//---------------------------------------------------------
+// SET COLUMN
+//---------------------------------------------------------
+void Scenario_setColumn(u8 column)
+{
+
+}
+
+
+//---------------------------------------------------------
+// SET ROW
+//---------------------------------------------------------
+void Scenario_setRow(u8 row)
+{
+
+}
