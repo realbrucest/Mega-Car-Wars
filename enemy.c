@@ -18,53 +18,47 @@
 // ENEMY TYPE DEFINITIONS
 const struct t_enemy_def enemy_types[MAX_ENEMY_TYPES] =
 {
-  // Boss
+  // Tire launcher
   {
-  	&nmy_boss_sprite,
-  	Enemy_IABoss,
-  	{ 128, 128, 128, 128 }
+  	&nmy_tirelauncher_sprite,
+  	Enemy_IATireLauncher,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Clam
+  // Crazy car
   {
-  	&nmy_clam_sprite,
-  	Enemy_IAClam,
-  	{ 128, 128, 128, 128 }
+  	&nmy_crazycar_sprite,
+  	Enemy_IACrazyCar,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Frog
+  // Helicopter
   {
-  	&nmy_frog_sprite,
-  	Enemy_IAFrog,
-  	{ 128, 128, 128, 128 }
+  	&nmy_helicopter_sprite,
+  	Enemy_IAHelicopter,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Octopus
+  // Sanke
   {
-  	&nmy_octopus_sprite,
-  	Enemy_IAOctopus,
-  	{ 128, 128, 128, 128 }
+  	&nmy_snake_sprite,
+  	Enemy_IASnake,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Plant
+  // Crow
   {
-  	&nmy_plant_sprite,
-  	Enemy_IAPlant,
-  	{ 128, 128, 128, 128 }
+  	&nmy_crow_sprite,
+  	Enemy_IACrow,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Shooter
+  // Dron
   {
-  	&nmy_shooter_sprite,
-  	Enemy_IAShooter,
-  	{ 128, 128, 128, 128 }
+  	&nmy_dron_sprite,
+  	Enemy_IADron,
+    ENEMY_DEFAULT_HITPOINTS
   },
-  // Slug
+  // Penguin
   {
-  	&nmy_slug_sprite,
-  	Enemy_IASlug,
-  	{ 128, 128, 128, 128 }
-  },
-  // Turret
-  {
-  	&nmy_turret_sprite,
-  	Enemy_IATurret,
-  	{ 128, 128, 128, 128 }
+  	&nmy_penguin_sprite,
+  	Enemy_IAPenguin,
+    ENEMY_DEFAULT_HITPOINTS
   },
 };
 
@@ -103,72 +97,64 @@ void Enemy_new(const struct t_enemy_spawn spawndata, u8 id, u8 difficulty)
 	enemies[id].posy = intToFix16(posy);
 
 	enemies[id].status = ENEMY_STATUS_STAND;
-	enemies[id].energy = enemy_types[type].hitpoints[difficulty];
+	enemies[id].energy = enemy_types[type].hitpoints;
 
 	SPR_setPosition(enemies[id].sprite, posx, posy);
 }
 
 //---------------------------------------------------------
-// IA BOSS
+// IA TIRE LAUNCHER
 //---------------------------------------------------------
-void Enemy_IABoss(u8 id, u8 level)
+void Enemy_IATireLauncher(u8 id, u8 level)
 {
 
 }
 
 //---------------------------------------------------------
-// IA CLAM
+// IA CRAZY CAR
 //---------------------------------------------------------
-void Enemy_IAClam(u8 id, u8 level)
+void Enemy_IACrazyCar(u8 id, u8 level)
 {
 
 }
 
 //---------------------------------------------------------
-// IA FROG
+// IA HELICOPTER
 //---------------------------------------------------------
-void Enemy_IAFrog(u8 id, u8 level)
+void Enemy_IAHelicopter(u8 id, u8 level)
 {
 
 }
 
 //---------------------------------------------------------
-// IA OCTOPUS
+// IA SNAKE
 //---------------------------------------------------------
-void Enemy_IAOctopus(u8 id, u8 level)
+void Enemy_IASnake(u8 id, u8 level)
 {
 
 }
 
 
 //---------------------------------------------------------
-// IA PLANT
+// IA CROW
 //---------------------------------------------------------
-void Enemy_IAPlant(u8 id, u8 level)
+void Enemy_IACrow(u8 id, u8 level)
 {
 
 }
 
 //---------------------------------------------------------
-// IA SHOOTER
+// IA DRON
 //---------------------------------------------------------
-void Enemy_IAShooter(u8 id, u8 level)
+void Enemy_IADron(u8 id, u8 level)
 {
 
 }
 
 //---------------------------------------------------------
-// IA SLUG
+// IA PENGUIN
 //---------------------------------------------------------
-void Enemy_IASlug(u8 id, u8 level)
-{
-
-}
-
-//---------------------------------------------------------
-// IA TURRET
-//---------------------------------------------------------
-void Enemy_IATurret(u8 id, u8 level)
+void Enemy_IAPenguin(u8 id, u8 level)
 {
 
 }

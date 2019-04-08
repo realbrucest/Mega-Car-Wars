@@ -16,23 +16,22 @@
 // CONSTANT ///////////////////////////////////////////////
 #define ENEMY_PALETTE			PAL3
 
-#define NUM_DIFFICULT_LEVELS	4
-
-#define MAX_ENEMY_TYPES 		8
+#define MAX_ENEMY_TYPES 		7
 #define MAX_ENEMIES_ROOM		8
 
 // IDs
-#define ENEMY_BOSS 			0
-#define ENEMY_CLAM 			1
-#define ENEMY_SLUG			2
-#define ENEMY_SHOOTER		3
-#define ENEMY_PLANT			4
-#define ENEMY_OCTOPUS		5
-#define ENEMY_FROG			6
-#define ENEMY_TURRET		7
+#define ENEMY_TIRELAUNCHER	0
+#define ENEMY_CRAZYCAR		1
+#define ENEMY_HELICOPTER	2
+#define ENEMY_SNAKE			3
+#define ENEMY_CROW			4
+#define ENEMY_DRON			5
+#define ENEMY_PENGUIN		6
+
 
 #define VOID_ENEMY			255
 
+#define ENEMY_DEFAULT_HITPOINTS	1
 
 // States (mainly for animation purposes)
 #define ENEMY_STATUS_VOID   0
@@ -51,7 +50,7 @@ struct t_enemy_def
 {
 	const SpriteDefinition *sprite;
 	void (*IA)(u8, u8);
-	u8 hitpoints[NUM_DIFFICULT_LEVELS];
+	u8 hitpoints;
 };
 
 // Enemy spawn
@@ -88,14 +87,13 @@ extern struct t_enemy_data enemies[MAX_ENEMIES_ROOM];
 // FUNCTIONS //////////////////////////////////////////////
 
 // IAs
-void Enemy_IABoss(u8, u8);
-void Enemy_IAClam(u8, u8);
-void Enemy_IAFrog(u8, u8);
-void Enemy_IAOctopus(u8, u8);
-void Enemy_IAPlant(u8, u8);
-void Enemy_IAShooter(u8, u8);
-void Enemy_IASlug(u8, u8);
-void Enemy_IATurret(u8, u8);
+void Enemy_IATireLauncher(u8, u8);
+void Enemy_IACrazyCar(u8, u8);
+void Enemy_IAHelicopter(u8, u8);
+void Enemy_IASnake(u8, u8);
+void Enemy_IACrow(u8, u8);
+void Enemy_IADron(u8, u8);
+void Enemy_IAPenguin(u8, u8);
 
 //
 void Enemy_clearData();

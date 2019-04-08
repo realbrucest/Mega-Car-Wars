@@ -35,7 +35,7 @@
 #define INFOSPLASH_ID_PUSHABLE_OBJECTS				1
 #define INFOSPLASH_ID_ENTER_GARAGE					2
 #define INFOSPLASH_ID_REFILL_ENERGY					3
-#define INFOSPLASH_ID_FLYING_ENEMIES				4	
+#define INFOSPLASH_ID_FLYING_ENEMIES				4
 #define INFOSPLASH_ID_PUZZLES_THINKING				5
 #define INFOSPLASH_ID_ENTER_WITH_COINS_1			6
 #define INFOSPLASH_ID_ELIMINATE_GROUND_ENEMIES_1	7
@@ -55,15 +55,37 @@
 #define INFOSPLASH_ID_ENTER_WITH_COINS_5			19
 #define INFOSPLASH_ID_BUY_FLAMETHROWER				20
 #define INFOSPLASH_ID_BUY_MELT_OBSTACLES			21
+// Void message value
+#define INFOSPLASH_ID_VOID 							255
 
+#define INFOSPLASH_CANVAS_POSX					2
+#define INFOSPLASH_CANVAS_POSY					4
+#define INFOSPLASH_CANVAS_WIDTH					36
+#define INFOSPLASH_CANVAS_HEIGHT				20
+
+#define INFOSPLASH_MECHANIC_POSX				16
+#define INFOSPLASH_MECHANIC_POSY				96
+#define INFOSPLASH_MECHANIC_DEFAULT_PALETTE		PAL2
+
+#define INFOSPLASH_ANIMATION_DELAY_DEFAULT		60
+
+#define INFOSPLASH_TEXT_POSX		5
+#define INFOSPLASH_TEXT_POSY		5
+
+
+// MACROS /////////////////////////////////////////////////
+
+#define Screen_setLanguage(lang); language = lang;
+#define Screen_infoSplashLoadFont(); VDP_loadFont(&infosplash_font, TRUE);
 
 // STRUCTS ////////////////////////////////////////////////
 
 // Ingame Info splash
 struct t_infosplash
 {
-	const SpriteDefinition *icon;
-    u8 text[LANGUAGE_MAX][INFOSPLASH_NUMLINES][INFOSPLASH_LINESIZE];
+	void (*animguy)();
+	void (*cartoon)();
+    const char text[LANGUAGE_MAX][INFOSPLASH_NUMLINES][INFOSPLASH_LINESIZE];
 };
 
 
@@ -71,6 +93,19 @@ struct t_infosplash
 
 // Info messages
 extern const struct t_infosplash infosplahes[INFOSPLASH_MAX];
+
+// Info guy sprite
+extern Sprite *infoguy;
+
+// Language set
+extern u8 language;
+
+// FUNCTIONS //////////////////////////////////////////////
+
+void Screen_infoSplashOpen(u8);
+void Screen_infoSplashClose();
+
+void Screen_waitForAnimation(u8);
 
 
 #endif // _SCREEN_H_

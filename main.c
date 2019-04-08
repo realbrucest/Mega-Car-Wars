@@ -46,15 +46,14 @@ int main()
     // Process ____________________________________________
 
     // Init and load the sprite
-    // SPR_init(16, 256, 256);
-    // sprite_x = 0; sprite_y = 0; sprite_movx = 1; sprite_movy = 1;
-    // sprite = SPR_addSprite(&star_sprite, sprite_x, sprite_y, TILE_ATTR(PAL3, TRUE, FALSE, FALSE));
+    SPR_init(80, 256, 256);
 
-    // Set the palette from the sprite
-    // VDP_setPalette(PAL3, (u16*) star_sprite.palette->data);
+    Screen_setLanguage(LANGUAGE_SPANISH);
 
     Scenario_setCurrent(SCENARIO_FIRST);
     Scenario_load(scenario.current);
+
+    Car_init(64, 64, CAR_DIR_DOWN);
 
     VDP_setHilightShadow(TRUE);
 
@@ -63,6 +62,8 @@ int main()
 
     Scroll_cameraInit(SCENARIO_POS_X, SCENARIO_POS_Y, CAMERA_DEFAULT_SPEED);
 
+    Screen_infoSplashOpen(2);
+
 
    // MAIN LOOP
    while(TRUE)
@@ -70,11 +71,11 @@ int main()
 
         handleInput();
 
-        Scroll_cameraUpdate();
+        //Scroll_cameraUpdate();
 
-        // SPR_setPosition(sprite, sprite_x, sprite_y);
+        Car_update();
 
-        // SPR_update();
+        SPR_update();
 
         VDP_waitVSync();
     }
@@ -106,12 +107,14 @@ static void handleInput()
     if ((value & BUTTON_UP))
     {
         camera.posy -= camera.speed;
+        car.posy--; // WIP
 
         // if (camera.posx < CAMERA_BOUNDARY_UP) camera.posx = CAMERA_BOUNDARY_UP;
     }
     else if ((value & BUTTON_DOWN))
     {
         camera.posy += camera.speed;
+        car.posy++; // WIP
 
         // if (camera.posy > CAMERA_BOUNDARY_DOWN) camera.posy = FIX32(0);
     }

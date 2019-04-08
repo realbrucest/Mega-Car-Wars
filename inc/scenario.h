@@ -46,6 +46,22 @@
 
 #define SCENARIO_FIRST			SCENARIO_ID_CIRCUIT
 
+#define SCENARIO_INFO_SPOTS_MAX		11
+
+// TILES IDs
+#define TILE_EMPTY					0x00
+#define TILE_ENEMY_TIRELAUNCHER		0x10
+#define TILE_ENEMY_CRAZYCAR			0x20
+#define TILE_ENEMY_HELICOPTER		0x30
+#define TILE_ENEMY_SNAKE			0x40
+#define TILE_ENEMY_CROW				0x50
+#define TILE_ENEMY_DRON				0x60
+#define TILE_ENEMY_PENGUIN			0x70
+#define TILE_PUSHABLE				0xA0
+#define TILE_BLOCK					0xB0
+#define TILE_COIN					0xC0
+#define TILE_INFO					0xD0 // (Range)
+
 
 // STRUCTS ////////////////////////////////////////////////
 
@@ -54,8 +70,9 @@ struct t_scenario_def
 {
 	const Image *bga;
 	const Image *bgb;
-	const Image *prioritymap;
-	const Image *hardnessmap;
+	
+	u8 hardnessmap[SCENARIO_NUM_TILES];
+	u8 infospots[SCENARIO_INFO_SPOTS_MAX];
 
 	u16 startx, starty;
 
@@ -77,6 +94,7 @@ struct t_scenario_data
 
 	u8 hardnessmap[SCENARIO_NUM_TILES];
 };
+
 
 // DATA ///////////////////////////////////////////////////
 

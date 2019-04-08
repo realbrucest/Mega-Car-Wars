@@ -18,26 +18,33 @@
 
 // CONSTANT ///////////////////////////////////////////////
 
-#define CAR_DIR_RIGHT	0		// Angle range: 0 to 1027
-#define CAR_DIR_UP		256		
+#define CAR_DIR_RIGHT	0		// Angle range: 0 to 1023
+#define CAR_DIR_UP		256
 #define CAR_DIR_DOWN	768
 #define CAR_DIR_LEFT	512
+#define CAR_DIR_LOOP    1023
+
+#define CAR_ANGLE_TO_FRAME(ang) ((ang) >> 6)
+
+#define CAR_DEFAULT_TURNSPEED   16
+
+#define CAR_DEFAULT_PALETTE	PAL3
 
 
 
 // STRUCTS ////////////////////////////////////////////////
 struct t_car
 {
-    Sprite sprite;
+    Sprite *sprite;
 
-    fix32 mapx, mapy; // Map coords
-    fix32 posx, posy; // Screen coords
-    
-    fix32 dirx, diry;
-    
+    u16 mapx, mapy; // Map coords
+    u16 posx, posy; // Screen coords
+
+    u16 dirx, diry;
+
     u8 turnspeed;	// Angle addition or substraction
 
-    fix32 angle;
+    s16 angle;
 
     struct t_weapon *weapon;
 };
@@ -49,7 +56,8 @@ extern struct t_car car;
 
 // FUNCTIONS //////////////////////////////////////////////
 
-void Car_init(u8, u8, u8);
+void Car_init(u8, u8, u16);
+void Car_update();
 
 
 #endif // _CAR_H_

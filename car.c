@@ -8,7 +8,10 @@
 #include "inc/car.h"
 
 // LIBS ///////////////////////////////////////////////////
+#include "kdebug.h"
 
+// ASSETS /////////////////////////////////////////////////
+#include "sprite.h"
 
 
 // DATA ///////////////////////////////////////////////////
@@ -21,11 +24,47 @@ struct t_car car;
 //---------------------------------------------------------
 // INIT
 //---------------------------------------------------------
-void Car_init(u8 posx, u8 posy, u8 angle)
+void Car_init(u8 posx, u8 posy, u16 angle)
 {
-	car.posx = FIX32(posx);
-	car.posy = FIX32(posy);
+	car.posx = posx;//FIX32(posx);
+	car.posy = posy;//FIX32(posy);
 	car.angle = angle;
+
+	car.turnspeed = CAR_DEFAULT_TURNSPEED;
+
+    car.sprite = SPR_addSprite(&car_sprite, car.posx, car.posy, TILE_ATTR(CAR_DEFAULT_PALETTE, TRUE, FALSE, FALSE));
+
+    // Set the general sprites palette as PAL3
+    VDP_setPalette(PAL3, (u16*) car_sprite.palette->data);
 }
 
 
+//---------------------------------------------------------
+// UPDATE
+//---------------------------------------------------------
+void Car_update()
+{
+	if (car.angle > CAR_DIR_LOOP) car.angle = CAR_DIR_RIGHT;
+	if (car.angle < CAR_DIR_RIGHT) car.angle = CAR_DIR_LOOP;
+
+	u8 frame = CAR_ANGLE_TO_FRAME(car.angle);
+
+	fix16 cdx = sinFix16(car.angle);
+	fix16 cdy = - cosFix16(car.angle);
+
+	car.dirx = fix16ToInt(cdx);
+	car.diry = fix16ToInt(cdy);
+
+	car.posx += car.dirx;
+	car.posy += car.diry;
+	car.dirx *= 0.95;
+	car.diry *= 0.95;
+
+
+
+	KDebug_AlertNumber (car.angle);
+	KDebug_AlertNumber (frame);
+
+	SPR_setFrame(car.sprite, CAR_ANGLE_TO_FRAME(car.angle));
+	SPR_setPosition(car.sprite, car.posx, car.posy);
+}
