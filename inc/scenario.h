@@ -61,6 +61,7 @@
 #define TILE_BLOCK					0xB0
 #define TILE_COIN					0xC0
 #define TILE_INFO					0xD0 // (Range)
+#define TILE_ENERGY					0xE0
 
 
 // STRUCTS ////////////////////////////////////////////////
