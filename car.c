@@ -44,10 +44,9 @@ void Car_init(u8 posx, u8 posy, u16 angle)
 //---------------------------------------------------------
 void Car_update()
 {
-	if (car.angle > CAR_DIR_LOOP) car.angle = CAR_DIR_RIGHT;
-	if (car.angle < CAR_DIR_RIGHT) car.angle = CAR_DIR_LOOP;
 
-	u8 frame = CAR_ANGLE_TO_FRAME(car.angle);
+	if (car.angle > CAR_DIR_LOOP) car.angle = CAR_DIR_DOWN;
+	if (car.angle < CAR_DIR_DOWN) car.angle = CAR_DIR_LOOP;
 
 	fix16 cdx = sinFix16(car.angle);
 	fix16 cdy = - cosFix16(car.angle);
@@ -60,7 +59,7 @@ void Car_update()
 	car.dirx *= 0.95;
 	car.diry *= 0.95;
 
-
+	u8 frame = CAR_ANGLE_TO_FRAME(car.angle);
 
 	KDebug_AlertNumber (car.angle);
 	KDebug_AlertNumber (frame);

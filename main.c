@@ -53,7 +53,7 @@ int main()
     Scenario_setCurrent(SCENARIO_FIRST);
     Scenario_load(scenario.current);
 
-    Car_init(64, 64, CAR_DIR_DOWN);
+    Car_init(64, 64, CAR_DIR_LEFT);
 
     VDP_setHilightShadow(TRUE);
 
@@ -91,15 +91,15 @@ static void handleInput()
 
     if ((value & BUTTON_LEFT))
     {
-        camera.posx -= camera.speed;
-        car.angle -= car.turnspeed;
+        camera.posx += camera.speed;
+        car.angle += car.turnspeed;
 
         // if (camera.posx < CAMERA_BOUNDARY_LEFT) camera.posx = CAMERA_BOUNDARY_LEFT;
     }
     else if ((value & BUTTON_RIGHT))
     {
-        camera.posx += camera.speed;
-        car.angle += car.turnspeed;
+        camera.posx -= camera.speed;
+        car.angle -= car.turnspeed;
 
         // if (camera.posx > CAMERA_BOUNDARY_RIGHT) camera.posx = FIX32(0);
     }
@@ -107,7 +107,13 @@ static void handleInput()
     if ((value & BUTTON_UP))
     {
         camera.posy -= camera.speed;
-        car.posy--; // WIP
+        //car.posy--; // WIP
+        fix16 cdx = sinFix16(car.angle);
+        fix16 cdy = - cosFix16(car.angle);
+
+        car.dirx = fix16ToInt(cdx);
+        car.diry = fix16ToInt(cdy);
+
 
         // if (camera.posx < CAMERA_BOUNDARY_UP) camera.posx = CAMERA_BOUNDARY_UP;
     }

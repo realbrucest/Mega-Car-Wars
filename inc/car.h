@@ -18,13 +18,13 @@
 
 // CONSTANT ///////////////////////////////////////////////
 
-#define CAR_DIR_RIGHT	0		// Angle range: 0 to 1023
-#define CAR_DIR_UP		256
-#define CAR_DIR_DOWN	768
-#define CAR_DIR_LEFT	512
+#define CAR_DIR_DOWN	0   // Angle range: 0 to 1023
+#define CAR_DIR_RIGHT	256
+#define CAR_DIR_UP		512
+#define CAR_DIR_LEFT	768
 #define CAR_DIR_LOOP    1023
 
-#define CAR_ANGLE_TO_FRAME(ang) ((ang) >> 6)
+#define CAR_ANGLE_TO_FRAME(ang) ((ang) / 42)
 
 #define CAR_DEFAULT_TURNSPEED   16
 

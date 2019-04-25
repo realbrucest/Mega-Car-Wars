@@ -63,6 +63,10 @@
 #define TILE_INFO					0xD0 // (Range)
 #define TILE_ENERGY					0xE0
 
+// IDs ranges checks
+#define TILE_IS_ENEMY(value)		(value >= TILE_ENEMY_TIRELAUNCHER && value < TILE_PUSHABLE)
+#define TILE_IS_COLLECTABLE(value)	(value >= TILE_COIN)
+
 
 // STRUCTS ////////////////////////////////////////////////
 
