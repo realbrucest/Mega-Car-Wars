@@ -38,11 +38,6 @@ int main()
     u16 mapy = 12;
 
 
-
-    // Sprite stuff
-    // u16 sprite_x, sprite_y, sprite_movx, sprite_movy;
-    // Sprite* sprite;
-
     // Process ____________________________________________
 
     // Init and load the sprite
@@ -62,7 +57,7 @@ int main()
 
     Scroll_cameraInit(SCENARIO_POS_X, SCENARIO_POS_Y, CAMERA_DEFAULT_SPEED);
 
-    Screen_infoSplashOpen(2);
+    //Screen_infoSplashOpen(2);
 
 
    // MAIN LOOP

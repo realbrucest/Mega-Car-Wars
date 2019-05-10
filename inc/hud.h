@@ -37,7 +37,7 @@
 
 // FUNCTIONS //////////////////////////////////////////////
 
-void HUD_drawMoney(u8);
+void HUD_drawCoins(u8);
 void HUD_drawEnhancements(u8, u8);
 void HUD_drawEnergy(u8, u8);
 

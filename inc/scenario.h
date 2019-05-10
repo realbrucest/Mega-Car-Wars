@@ -51,7 +51,12 @@
 // TILES IDs
 #define TILE_EMPTY					0x00
 #define TILE_ENEMY_TIRELAUNCHER		0x10
+
 #define TILE_ENEMY_CRAZYCAR			0x20
+#define TILE_ENEMY_CRAZYCAR_PARKED_VERTICAL		0x28
+#define TILE_ENEMY_CRAZYCAR_PARKED_HORIZONTAL	0x29
+
+
 #define TILE_ENEMY_HELICOPTER		0x30
 #define TILE_ENEMY_SNAKE			0x40
 #define TILE_ENEMY_CROW				0x50
@@ -65,7 +70,10 @@
 
 // IDs ranges checks
 #define TILE_IS_ENEMY(value)		(value >= TILE_ENEMY_TIRELAUNCHER && value < TILE_PUSHABLE)
+#define TILE_IS_INFO(value)		    (value >= TILE_INFO && value < TILE_ENERGY)
 #define TILE_IS_COLLECTABLE(value)	(value >= TILE_COIN)
+
+#define TILE_GET_ATTRIBUTE(value)   (value >> 4)
 
 
 // STRUCTS ////////////////////////////////////////////////
@@ -75,7 +83,7 @@ struct t_scenario_def
 {
 	const Image *bga;
 	const Image *bgb;
-	
+
 	u8 hardnessmap[SCENARIO_NUM_TILES];
 	u8 infospots[SCENARIO_INFO_SPOTS_MAX];
 
