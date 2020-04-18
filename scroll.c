@@ -61,9 +61,9 @@ void Scroll_cameraUpdate()
 				column, row, 1, SCREEEN_HEIGHT_TILES);
 
 
-        VDP_setHorizontalScroll(PLAN_A, fix32ToInt(-camera.posx));
-        VDP_setHorizontalScroll(PLAN_B, fix32ToInt(-camera.posx));
+        VDP_setHorizontalScroll(BG_A, fix32ToInt(-camera.posx));
+        VDP_setHorizontalScroll(BG_B, fix32ToInt(-camera.posx));
 
-        VDP_setVerticalScroll(PLAN_A,fix32ToInt(camera.posy));
-        VDP_setVerticalScroll(PLAN_B,fix32ToInt(camera.posy));
+        VDP_setVerticalScroll(BG_A,fix32ToInt(camera.posy));
+        VDP_setVerticalScroll(BG_B,fix32ToInt(camera.posy));
 }

@@ -955,7 +955,7 @@ void Screen_infoSplashOpen(u8 id)
 
 	// Load background
 	// WIP - TODO: set just a flat shadow layer
-	VDP_fillTileMapRect(PLAN_A, TILE_ATTR_FULL(PAL0, TRUE, 0, 0, 3) ,
+	VDP_fillTileMapRect(BG_A, TILE_ATTR_FULL(PAL0, TRUE, 0, 0, 3) ,
 		INFOSPLASH_CANVAS_POSX, INFOSPLASH_CANVAS_POSY,
 		INFOSPLASH_CANVAS_WIDTH, INFOSPLASH_CANVAS_HEIGHT);
 
@@ -967,7 +967,7 @@ void Screen_infoSplashOpen(u8 id)
 
 	VDP_setTextPriority(TRUE);
 	for(i=0; i<INFOSPLASH_NUMLINES; i++)
-		VDP_drawTextBG(PLAN_A, infosplahes[id].text[language][i],
+		VDP_drawTextBG(BG_A, infosplahes[id].text[language][i],
 			INFOSPLASH_TEXT_POSX, INFOSPLASH_TEXT_POSY + (i << 1));
 }
 
